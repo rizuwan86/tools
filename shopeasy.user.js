@@ -5,7 +5,7 @@
 // @description Tools untuk memudahkan listing barang dari Shopee ke Carousell
 // @match       https://shopee.com.my/*
 // @match       https://my.carousell.com/*
-// @version     2.1.0
+// @version     2.1.1
 // @require     http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js
 // @require     https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js
 // @require     https://raw.githubusercontent.com/rizuwan86/tools/master/utils/helper.lib.js
@@ -163,7 +163,7 @@ $(document).ready(function() {
         // Step 2
         if($("span:contains(Listing Title)").length) {
             console.log(shopeasy.item.name);
-            $("span:contains(New)").prev().click();
+            $("span:contains(New)").parent().click();
             $("p:contains(Mailing & Delivery)").parent().prev().click();
 
             $("span:contains(Listing Title)").next().focus(function() {
@@ -230,7 +230,7 @@ $(document).ready(function() {
           
         }
       });
-      var observerTarget2 = $("#root > div > div > div:eq(1) > div")[1];
+      var observerTarget2 = $("#root > div > div > div:eq(1) > div")[0];
       var observerConfig2 = { attributes:true, childList: false, characterData: false, subtree: true };
       observer2.observe(observerTarget2, observerConfig2);
 
